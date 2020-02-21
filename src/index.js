@@ -5,10 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import Layout from "./layouts/Layout";
-import Main from "./components/Main";
+import Main from "./pages/Main";
 import About from "./components/About";
 import Contacts from "./components/Contacts";
-import PageNotFound from "./components/PageNotFound";
+import PageNotFound from "./pages/PageNotFound";
 
 
 ReactDOM.render(<Router history={browserHistory}>
