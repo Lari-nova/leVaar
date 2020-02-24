@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, createContext, useEffect} from 'react';
+
 import './App.css';
+import {browserHistory, IndexRoute, Route, Router} from "react-router";
+import Layout from "./layouts/Layout";
+import Main from "./pages/Main";
+import News from "./pages/News";
+import Article from "./pages/Article";
+import PageNotFound from "./pages/PageNotFound";
+
+export const ArticleContext = createContext({
+  articles: [],
+  addArticles: () => {},
+  articleIndex: undefined,
+  setArticleIndex: () => {},
+});
 
 function App() {
+  const [articles, setArticles] = useState([]);
+  const [articleIndex, setArticleIndex] = useState(undefined);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ArticleContext.Provider value={{articles, addArticles: setArticles, articleIndex, setArticleIndex}}>
+      <Router history={browserHistory}>
+        <Route path="/" component={Layout}>
+          <IndexRoute component={Main} />
+          <Route path="news" component={News}>
+            <Route path=":newsId" component={Article} />
+          </Route>
+          <Route path="*" component={PageNotFound} />
+        </Route>
+      </Router>
+    </ArticleContext.Provider>
   );
 }
 
