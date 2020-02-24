@@ -1,8 +1,6 @@
-import React, {Component, useContext} from 'react';
-import axios from 'axios';
-
+import React, { useContext } from 'react';
 import News from '../components/News';
-import {ArticleContext} from "../App";
+import { ArticleContext } from "../App";
 
 const Article = () => {
   const { articles, articleIndex } = useContext(ArticleContext);

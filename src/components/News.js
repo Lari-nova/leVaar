@@ -1,6 +1,6 @@
-import React, {Component, useContext} from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
-import {ArticleContext} from "../App";
+import { ArticleContext } from "../App";
 
 const News = (props) => {
   const { title, author, description, publishedAt, content, index, isLink } = props;

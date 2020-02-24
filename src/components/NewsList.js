@@ -1,7 +1,7 @@
 import React, { useContext, useEffect} from 'react';
 import axios from 'axios';
 import News from '../components/News';
-import {ArticleContext} from "../App";
+import { ArticleContext } from "../App";
 
 
 const NewsList = () => {

@@ -1,7 +1,5 @@
-import React, {useState, createContext, useEffect} from 'react';
-
-import './App.css';
-import {browserHistory, IndexRoute, Route, Router} from "react-router";
+import React, { useState, createContext, useEffect } from 'react';
+import { browserHistory, IndexRoute, Route, Router } from "react-router";
 import Layout from "./layouts/Layout";
 import Main from "./pages/Main";
 import News from "./pages/News";
@@ -15,7 +13,7 @@ export const ArticleContext = createContext({
   setArticleIndex: () => {},
 });
 
-function App() {
+const App = () => {
   const [articles, setArticles] = useState([]);
   const [articleIndex, setArticleIndex] = useState(undefined);
 
@@ -32,6 +30,6 @@ function App() {
       </Router>
     </ArticleContext.Provider>
   );
-}
+};
 
 export default App;
