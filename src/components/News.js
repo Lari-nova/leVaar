@@ -6,26 +6,27 @@ const News = (props) => {
   const { title, author, description, publishedAt, content, index, isLink } = props;
   const { setArticleIndex } = useContext(ArticleContext);
 
-    return (
-      <div className="card border-secondary mb-3">
+  return (
+    <div className="container h-25">
+      <div className="card border-primary mb-1">
         <div className="card-header">
           {
             isLink ?
               <Link to={`/news/${index}`} onClick={() => setArticleIndex(index)}>
-              {title}
-            </Link>
+                {title}
+              </Link>
               :
               <h>{title}</h>
           }
         </div>
-        <div className="card-body text-secondary">
-          <p>{author}</p>
+        <div className="card-body">
           <p>{description}</p>
-          <p>{publishedAt}</p>
           <p>{content}</p>
         </div>
       </div>
-    )
+    </div>
+
+  )
 };
 
 export default News;
